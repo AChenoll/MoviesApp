@@ -1,0 +1,60 @@
+<mat-tab-group style="height:100%;">
+  <mat-tab label="Usuario">
+    <ng-template matTabContent>
+      <div class="container mt-4">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">{{ loca[0].nombre_publico }}</h3>
+            <div class="info-section fs-5">
+              <mat-chip color="primary">
+                ID Usuario
+              </mat-chip>
+              {{ loca[0].id_usuario }}
+            </div>
+            <div class="info-section fs-5">
+              <mat-chip color="primary">
+                Nombre de Usuario
+              </mat-chip>
+              {{ loca[0].usuario }}
+            </div>
+            <div class="info-section fs-5">
+              <mat-chip color="primary">
+                Rol
+              </mat-chip>
+              {{ loca[0].id_rol === 1 ? 'Administrador' : (loca[0].id_rol === 2 ? 'Usuario' : 'Otro') }}
+            </div>
+            <div class="button-container">
+              <button mat-flat-button color="primary" class="editar-button" (click)="editUser(loca[0])">Editar</button>
+            </div>
+            <div class="button-container">
+              <button mat-raised-button color="primary" class="cerrar-button" (click)="goBack()">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Favoritos">
+    <ng-template matTabContent>
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let movie of lista_fav">
+            <div class="card mb-4">
+              <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w500' + (movie.backdrop_path)" alt="{{ movie.title }} Poster">
+              <div class="card-body">
+                <h4 class="card-title" style="font-weight: bold;">{{ movie.title }}</h4>
+                <p class="card-text">{{ movie.overview }}</p>
+                <button mat-flat-button color="primary" (click)="quitarFavoritaPorId(movie.id); $event.stopPropagation()">Quitar de favoritas</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" *ngIf="lista_fav.length === 0">
+            <div class="alert alert-info" role="alert">
+              No hay películas favoritas para mostrar.
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

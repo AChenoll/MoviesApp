@@ -1,0 +1,17 @@
+<div class="container lg" style="margin-bottom: 15px">
+  <h3 mat-dialog-title>¿Seguro que desea eliminar el usuario?</h3>
+
+  <div mat-dialog-content class="mt-4">
+    <p>ID: {{ user.id_usuario }}</p>
+    <p>Usuario: {{ user.usuario }}</p>
+  </div>
+
+  <div mat-dialog-actions class="buttons">
+    <button mat-raised-button color="primary" id="deleteAlumno" (click)="confirmDelete()">
+      Eliminar Usuario
+    </button>
+    <button mat-flat-button color="primary" id="onNoClick" (click)="onNoClick()" tabindex="-1">
+      Cancelar
+    </button>
+  </div>
+</div>

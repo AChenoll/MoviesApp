@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">{{ titulo }}</h2>
+          <form [formGroup]="loginForm" (ngSubmit)="acceder()">
+            <div class="form-group">
+              <label for="username">Correo electrónico</label>
+              <input id="username" matInput formControlName="username" class="form-control" placeholder="Ingrese su correo electrónico" (keydown.enter)="onUsernameEnter()">
+              <mat-error *ngIf="loginForm.get('username')?.hasError('email')">Ingrese un correo electrónico válido</mat-error>
+            </div>
+            <div class="form-group" *ngIf="usernameEntered">
+              <label for="password">Contraseña</label>
+              <input #passwordInput id="password" matInput type="password" formControlName="password" class="form-control" placeholder="Ingrese su contraseña">
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid || showSpinner" class="btn-block">
+                Iniciar sesión
+              </button>
+            </div>
+          </form>
+          <div class="form-group text-center">
+            <button type="submit" mat-raised-button color="primary" [routerLink]="['/auth/new-account']" class="btn-block">
+              Crear cuenta
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

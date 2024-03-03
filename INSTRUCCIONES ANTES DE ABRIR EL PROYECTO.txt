@@ -1,0 +1,13 @@
+PROYECTO REALIZADO EN ANGULAR 16+
+
+Node version compatible 16.20.2
+
+Librerias necesarias para ejecutar el proyecto:
+- material (ng add @angular/material)
+- ngx-cookie-service (npm i ngx-cookie-service)
+- swiper (npm i swiper)
+- primeflex (npm i primeflex)
+
+Usuario y contraseña para iniciar sesion en la aplicacion
+User: dam2@iesplayamar.es
+Pass: Victoria1928

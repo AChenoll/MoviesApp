@@ -1,0 +1,41 @@
+<div class="container-lg mx-auto">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="mb-0">USUARIOS</h1>
+    <button mat-raised-button class="btn btn-primary" color="primary" (click)="addUser()">
+      <mat-icon>add_user</mat-icon>
+      Agregar Usuario
+    </button>
+  </div>
+
+  <div id="letra">
+    <div class="list-group-item list-group-item-dark mb-3 p-3 rounded" *ngFor="let user of listadoUsers">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="ms-2">
+            <div class="fw-bold" style="font-size: 24px; line-height:2.5">{{ user.nombre_publico }}</div>
+            <div class="line-height">ID Usuario: {{ user.id_usuario }}</div>
+            <div class="line-height">Nombre de Usuario: {{ user.usuario }}</div>
+            <div class="line-height">Rol: {{ user.id_rol === 1 ? 'Administrador' : user.id_rol === 2 ? 'Usuario' : 'Otro' }}</div>
+          </div>
+        </div>
+
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+          <div class="text-center">
+            <!-- Aquí puedes agregar más contenido según tus necesidades -->
+          </div>
+        </div>
+
+        <div class="col-md-3 d-flex justify-content-end align-items-center">
+          <div class="d-flex flex-column">
+            <button mat-icon-button color="primary" class="me-2" (click)="editUser(user)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteUser(user)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
